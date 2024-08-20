@@ -14,18 +14,20 @@ const Navbar = () => {
         <Typography
           variant="h6"
           className="navbar-title"
+          component={Link}
+          to="/"
         >
           Email Dev App
         </Typography>
         <div className="navbar-links">
-          <Button
+          {/* <Button
             color="inherit"
             component={Link}
             to="/"
             className="navbar-button"
           >
             Home
-          </Button>
+          </Button> */}
           <Button
             color="inherit"
             component={Link}
