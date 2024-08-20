@@ -44,6 +44,14 @@ const Navbar = () => {
           >
             Contact
           </Button>
+          <Button
+            color="inherit"
+            component={Link}
+            to="/email"
+            className="navbar-button"
+          >
+            Email
+          </Button>
         </div>
         <Button
           color="inherit"

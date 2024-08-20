@@ -5,6 +5,7 @@ import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import About from './pages/About';
 import Contact from './pages/Contact';
+import Email from './pages/Email';
 import './App.css';
 const App = () => {
   return (
@@ -23,6 +24,10 @@ const App = () => {
           <Route
             path="/contact"
             element={<Contact />}
+          />
+          <Route
+            path="/email"
+            element={<Email />}
           />
         </Routes>
       </div>
