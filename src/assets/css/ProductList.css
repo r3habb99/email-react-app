@@ -13,7 +13,6 @@ body {
 /* Product List Section */
 .product-list {
     padding: 40px 20px;
-    background-color: #fff;
         /* Adding a background color for better contrast */
 }
 
@@ -29,7 +28,7 @@ body {
 /* Product Grid */
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
         gap: 20px;
     justify-content: center;
 }

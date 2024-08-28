@@ -29,43 +29,49 @@ const Home = () => {
           <div className="features-grid">
             <div className="feature">
               <img
-                src="https://via.placeholder.com/100"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlfDlmyTfxkY4HnWkeKjlrqrF9__60V9CgXQ&s"
                 alt="Exclusive Offers"
                 className="feature-icon"
               />
               <h3>Exclusive Offers</h3>
               <p>
                 Enjoy exclusive discounts and promotions available only to our
-                valued customers.
+                valued customers. We regularly update our offers to include
+                seasonal sales, special bundles, and limited-time discounts,
+                ensuring that you get the best deals on your favorite products.
               </p>
             </div>
             <div className="feature">
               <img
-                src="https://via.placeholder.com/100"
+                src="https://img.freepik.com/free-vector/award-ribbon-check-mark-with-stars_78370-1097.jpg?size=338&ext=jpg&ga=GA1.1.2008272138.1724198400&semt=ais_hybrid"
                 alt="Quality Products"
                 className="feature-icon"
               />
               <h3>Quality Products</h3>
               <p>
                 We offer a wide range of high-quality products to ensure you get
-                the best value.
+                the best value. Each item is carefully selected and tested to
+                meet our rigorous standards for quality, durability, and
+                performance.
               </p>
             </div>
             <div className="feature">
               <img
-                src="https://via.placeholder.com/100"
+                src="https://img.freepik.com/premium-vector/fast-delivery-truck-icon-set-fast-shipping-design-website-mobile-apps-online-shopping_97458-1031.jpg"
                 alt="Fast Shipping"
                 className="feature-icon"
               />
               <h3>Fast Shipping</h3>
               <p>
                 Get your orders delivered quickly and efficiently with our
-                reliable shipping services.
+                reliable shipping services. We partner with leading carriers to
+                offer expedited shipping options that ensure your products
+                arrive on time.
               </p>
             </div>
           </div>
         </section>
-        <ProductList limit={4} /> {/* Limit the ProductList to 5 items */}
+        <ProductList limit={5} /> {/* Limit the ProductList to 5 items */}
         <div className="view-all-products">
           <Link
             to="/product"

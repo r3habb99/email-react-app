@@ -13,7 +13,7 @@ const ProductDetail = () => {
   }, [productId]);
 
   if (!product) {
-    return <p>Product not found</p>;
+    return <p className="not-found">Product not found</p>;
   }
 
   return (
