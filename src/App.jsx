@@ -5,8 +5,8 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import Email from './pages/Email';
-import './App.css';
 import ProductList from './components/ProductList';
+import ProductDetail from './pages/ProductDetail';
 const App = () => {
   return (
     <Router>
@@ -28,6 +28,10 @@ const App = () => {
           <Route
             path="/product"
             element={<ProductList />}
+          />
+          <Route
+            path="/product/:productId"
+            element={<ProductDetail />}
           />
           <Route
             path="/email"
