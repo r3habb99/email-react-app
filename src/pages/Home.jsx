@@ -65,7 +65,15 @@ const Home = () => {
             </div>
           </div>
         </section>
-        <ProductList /> {/* Include the ProductList component */}
+        <ProductList limit={4} /> {/* Limit the ProductList to 5 items */}
+        <div className="view-all-products">
+          <Link
+            to="/product"
+            className="view-all-button"
+          >
+            View All Products
+          </Link>
+        </div>
       </main>
       <footer>
         <Footer />

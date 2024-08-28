@@ -7,6 +7,7 @@ import Contact from './pages/Contact';
 import Email from './pages/Email';
 import ProductList from './components/ProductList';
 import ProductDetail from './pages/ProductDetail';
+import './App.css';
 const App = () => {
   return (
     <Router>

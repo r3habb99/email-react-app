@@ -32,18 +32,20 @@ const ProductDetail = () => {
         <button className="product-detail-button">Add to Cart</button>
         <div className="product-detail-extras">
           <div className="product-detail-section">
-            <h3>Stylist Notes</h3>
-            <p>
-              {product.stylistNotes ||
-                'This dress is perfect for any occasion, offering a flattering fit that accentuates your silhouette.'}
-            </p>
+            <h3>Available Sizes</h3>
+            <p>{product.sizes.join(', ')}</p>
           </div>
           <div className="product-detail-section">
-            <h3>Size & Fit</h3>
-            <p>
-              {product.sizeFit ||
-                'Fits true to size. For best results, wear with a strapless bra and seamless underwear.'}
-            </p>
+            <h3>Available Colors</h3>
+            <p>{product.colors.join(', ')}</p>
+          </div>
+          <div className="product-detail-section">
+            <h3>Material</h3>
+            <p>{product.material}</p>
+          </div>
+          <div className="product-detail-section">
+            <h3>Care Instructions</h3>
+            <p>{product.careInstructions}</p>
           </div>
         </div>
       </div>
