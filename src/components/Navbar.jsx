@@ -1,5 +1,4 @@
 // src/components/Navbar.jsx
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { AppBar, Toolbar, Typography, Button } from '@mui/material';
 import '../assets/css/Navbar.css'; // Import the custom CSS
@@ -20,14 +19,14 @@ const Navbar = () => {
           Email Dev App
         </Typography>
         <div className="navbar-links">
-          {/* <Button
+          <Button
             color="inherit"
             component={Link}
-            to="/"
+            to="/product"
             className="navbar-button"
           >
-            Home
-          </Button> */}
+            Product
+          </Button>
           <Button
             color="inherit"
             component={Link}

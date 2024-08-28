@@ -1,5 +1,4 @@
 // src/pages/About.jsx
-import React from 'react';
 import '../assets/css/About.css'; // Import the CSS file
 
 const About = () => {
@@ -13,8 +12,8 @@ const About = () => {
       </p>
       <p className="about-description">
         With years of experience in the industry, we have honed our skills and
-        expertise to deliver exceptional results. Whether you're looking for
-        innovative solutions or reliable support, we're here to help.
+        expertise to deliver exceptional results. Whether you are looking for
+        innovative solutions or reliable support, we are here to help.
       </p>
       <p className="about-description">
         Thank you for visiting our site. We look forward to working with you!
