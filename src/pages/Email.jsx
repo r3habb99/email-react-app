@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'; // Import react-toastify styles
 import '../assets/css/Email.css'; // Import custom CSS
+import axios from 'axios'; // Import Axios
 
 const EmailForm = () => {
   const [recipients, setRecipients] = useState('');
@@ -19,12 +20,9 @@ const EmailForm = () => {
   // Handle link generation
   const handleGenerateLink = async () => {
     try {
-      const response = await fetch('http://localhost:3000/link/generate'); // Ensure this URL matches your backend
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      const generatedLink = await response.text();
-      setButtonLink(generatedLink); // Update the state with the generated link
+      const response = await axios.get('http://localhost:3000/link/generate'); // Ensure this URL matches your backend
+
+      setButtonLink(response.data); // Update the state with the generated link
     } catch (error) {
       console.error('Error generating link:', error);
       toast.error('Failed to generate link. Please try again.');
@@ -56,19 +54,17 @@ const EmailForm = () => {
     }
 
     try {
-      const response = await fetch('http://localhost:3000/email/send-email', {
-        method: 'POST',
-        body: formData,
-      });
+      const response = await axios.post(
+        'http://localhost:3000/email/send-email',
+        formData
+      );
 
-      const responseJson = await response.json();
-
-      if (!response.ok) {
-        throw new Error(responseJson.errorMessage || 'An error occurred');
+      if (response.status !== 200) {
+        throw new Error(response.data.errorMessage || 'An error occurred');
       }
 
       toast.success(
-        responseJson.successMessage || 'Emails sent successfully!',
+        response.data.successMessage || 'Emails sent successfully!',
         {
           onClose: () => {
             // Delay resetting the form to allow the toast to fully disappear
@@ -93,6 +89,7 @@ const EmailForm = () => {
       );
     }
   };
+
   return (
     <div className="email-container">
       <h1 className="email-title">Email Form</h1>

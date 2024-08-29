@@ -1,20 +1,29 @@
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { products } from '../data/products'; // Import the products array
+//import { products } from '../data/products'; // Import the products array
 import '../assets/css/ProductDetail.css'; // Import custom CSS
-
+import axios from 'axios'; // Import axios
 const ProductDetail = () => {
-  const { productId } = useParams();
-  const [product, setProduct] = useState(null);
+const { productId } = useParams();
+const [product, setProduct] = useState(null);
 
-  useEffect(() => {
-    const fetchedProduct = products.find((p) => p.id === parseInt(productId));
-    setProduct(fetchedProduct);
-  }, [productId]);
+useEffect(() => {
+  // Fetch product data from the API
+  axios
+    .get(`http://localhost:3000/product-data/products/${productId}`)
+    .then((res) => {
+      const fetchedProduct = res.data;
+      setProduct(fetchedProduct);
+    })
+    .catch((err) => {
+      console.error(err);
+      setProduct(false); // Optionally set product to false on error
+    });
+}, [productId]);
 
-  if (!product) {
-    return <p className="not-found">Product not found</p>;
-  }
+if (!product) {
+  return <p className="not-found">Product not found</p>;
+}
 
   return (
     <div className="product-detail">

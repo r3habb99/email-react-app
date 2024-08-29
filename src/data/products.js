@@ -46,7 +46,7 @@ export const products = [
     price: '$89.99',
     imageUrl:
       'https://assets.myntassets.com/w_412,q_60,dpr_2,fl_progressive/assets/images/30227862/2024/7/23/86c16a2a-0567-4e89-a863-cd66a047989d1721733223715-French-Connection-Men-Trousers-1081721733223147-1.jpg',
-    sizes: ['30', '32', '34', '36'],
+    sizes: ['XS', 'S', 'M', 'L', 'XL'],
     colors: ['Beige', 'Navy', 'Olive'],
     material: '98% Cotton, 2% Spandex',
     careInstructions: 'Machine wash warm, tumble dry low.',
@@ -59,7 +59,7 @@ export const products = [
     price: '$219.99',
     imageUrl:
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDw5jsyAtxBMFGSmFBhKdYYNt0O4tqpy2jeg&s',
-    sizes: ['7', '8', '9', '10', '11'],
+    sizes: ['XS', 'S', 'M', 'L', 'XL'],
     colors: ['Brown', 'Black'],
     material: 'Genuine Leather',
     careInstructions:
@@ -86,7 +86,7 @@ export const products = [
     price: '$59.99',
     imageUrl:
       'https://images-na.ssl-images-amazon.com/images/I/61lB8Jfv+ZL._SLDPMOBCAROUSELAUTOCROP288221_MCnd_AC_SR462,693_.jpg',
-    sizes: ['30', '32', '34', '36'],
+    sizes: ['XS', 'S', 'M', 'L', 'XL'],
     colors: ['Khaki', 'Navy', 'Gray'],
     material: '100% Cotton',
     careInstructions: 'Machine wash warm, tumble dry low.',

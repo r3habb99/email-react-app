@@ -1,5 +1,5 @@
 // src/pages/Contact.jsx
-import React, { useState } from 'react';
+import { useState } from 'react';
 import '../assets/css/Contact.css'; // Import the CSS file
 
 const Contact = () => {
