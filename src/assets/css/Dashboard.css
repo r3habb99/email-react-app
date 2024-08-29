@@ -1,0 +1,10 @@
+/* src/pages/Dashboard.css */
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.dashboard-main {
+  flex: 1;
+}

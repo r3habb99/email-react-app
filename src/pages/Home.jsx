@@ -2,7 +2,6 @@
 import { Link } from 'react-router-dom';
 import '../assets/css/Home.css'; // Import custom CSS
 import ProductList from '../components/ProductList'; // Import the new component
-import Footer from '../components/Footer';
 
 const Home = () => {
   return (
@@ -14,7 +13,6 @@ const Home = () => {
             Discover the best deals and top-quality products tailored to your
             needs. Start exploring now and find what you are looking for!
           </p>
-
           <Link
             to={`/product`}
             className="cta-button"
@@ -81,9 +79,6 @@ const Home = () => {
           </Link>
         </div>
       </main>
-      <footer>
-        <Footer />
-      </footer>
     </div>
   );
 };
