@@ -61,23 +61,25 @@ body {
 }
 
 .product-detail-name {
-    font-size: 2.2rem;
+    font-size: 2.5rem;
     font-weight: 700;
     color: #222;
     margin-bottom: 15px;
 }
 
 .product-detail-description {
-    font-size: 1.1rem;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-size: 1.4rem;
     color: #666;
+    font-style: italic;
     margin-bottom: 20px;
     line-height: 1.6;
 }
 
 .product-detail-price {
-    font-size: 1.8rem;
+    font-size: 2rem;
     color: #e67e22;
-    font-weight: 700;
+    font-weight: 900;
     margin-bottom: 20px;
 }
 
@@ -87,7 +89,7 @@ body {
     color: #fff;
     background-color: #27ae60;
     border: none;
-    border-radius: 50px;
+    border-radius: 20px;
     cursor: pointer;
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
     align-self: start;

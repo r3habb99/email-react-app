@@ -6,7 +6,7 @@
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     background-color: #f4f4f4;
     color: #333;
 }
@@ -86,7 +86,7 @@ body {
 
 /* Product Name */
 .product-name {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
         /* Adjusted for balance */
         margin-bottom: 10px;
         font-weight: 600;
@@ -95,7 +95,7 @@ body {
 
 /* Product Description */
 .product-description {
-    font-size: 0.9rem;
+    font-size: 1rem;
         /* Adjusted for readability */
     color: #666;
     margin-bottom: 15px;
@@ -104,17 +104,16 @@ body {
         overflow: hidden;
         text-overflow: ellipsis;
         display: -webkit-box;
-        -webkit-line-clamp: 3;
         -webkit-box-orient: vertical;
 }
 
 /* Product Price */
 .product-price {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
         /* Adjusted for consistency */
         color: #e67e22;
-        font-weight: 700;
-    margin-bottom: 15px;
+        font-weight: 900;
+            margin-bottom: 15px;
 }
 
 /* Button */
