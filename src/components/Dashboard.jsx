@@ -1,6 +1,6 @@
 // src/pages/Dashboard.jsx
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
+import Navbar from './Navbar';
+import Footer from './Footer';
 import '../assets/css/Dashboard.css'; // Optional: Add any specific styling for the Dashboard component
 
 const Dashboard = ({ children }) => {

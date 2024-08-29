@@ -1,6 +1,6 @@
 // src/App.jsx
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Dashboard from './pages/Dashboard'; // Ensure this path is correct
+import Dashboard from './components/Dashboard'; // Ensure this path is correct
 import Home from './pages/Home';
 import About from './pages/About';
 import Contact from './pages/Contact';
