@@ -62,7 +62,8 @@
 
 .footer-social .social-icon {
     color: #e0e0e0;
-    font-size: 1.5rem;
+    font-size: 2rem;
+        /* Increased size for better visibility */
     text-decoration: none;
     transition: color 0.3s;
 }

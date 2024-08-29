@@ -1,3 +1,10 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faFacebook,
+  faTwitter,
+  faInstagram,
+  faLinkedin,
+} from '@fortawesome/free-brands-svg-icons';
 import '../assets/css/Footer.css'; // Import the CSS file for the Footer component
 
 const Footer = () => {
@@ -29,28 +36,28 @@ const Footer = () => {
               aria-label="Facebook"
               className="social-icon"
             >
-              <i className="fab fa-facebook-f"></i>
+              <FontAwesomeIcon icon={faFacebook} />
             </a>
             <a
               href="https://twitter.com"
               aria-label="Twitter"
               className="social-icon"
             >
-              <i className="fab fa-twitter"></i>
+              <FontAwesomeIcon icon={faTwitter} />
             </a>
             <a
               href="https://instagram.com"
               aria-label="Instagram"
               className="social-icon"
             >
-              <i className="fab fa-instagram"></i>
+              <FontAwesomeIcon icon={faInstagram} />
             </a>
             <a
               href="https://linkedin.com"
               aria-label="LinkedIn"
               className="social-icon"
             >
-              <i className="fab fa-linkedin-in"></i>
+              <FontAwesomeIcon icon={faLinkedin} />
             </a>
           </div>
         </div>
