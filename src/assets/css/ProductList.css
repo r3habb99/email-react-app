@@ -135,6 +135,56 @@ body {
     transform: scale(1.05);
         /* Slight zoom effect on hover */
     }
+/* Pagination Styles */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.pagination-button,
+.pagination-number {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 5px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    font-size: 1rem;
+}
+
+.pagination-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.pagination-button:hover:not(:disabled),
+.pagination-number:hover {
+    background-color: #2980b9;
+    transform: scale(1.05);
+}
+
+.pagination-number.active {
+    background-color: #e67e22;
+}
+
+.pagination-number {
+    padding: 10px 15px;
+    border-radius: 50%;
+}
+
+/* Responsive Design for Pagination */
+@media (max-width: 768px) {
+
+    .pagination-button,
+    .pagination-number {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+}
 /* Responsive Design */
 @media (max-width: 1200px) {
     .product-grid {

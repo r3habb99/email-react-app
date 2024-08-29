@@ -1,29 +1,41 @@
-// src/components/ProductList.jsx
 import { Link } from 'react-router-dom';
-import axios from 'axios'; // Import axios
-import { products } from '../data/products'; // Import the products array
-import '../assets/css/ProductList.css'; // Import the CSS for this component
+import axios from 'axios';
+import '../assets/css/ProductList.css';
 import { useEffect, useState } from 'react';
 
-const ProductList = ({ limit }) => {
+const ProductList = ({ initialPage = 1, limit = 10 }) => {
+  // Set limit to 3
   const [products, setProducts] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [page, setPage] = useState(initialPage);
+  const [totalPages, setTotalPages] = useState(1);
 
   useEffect(() => {
-    // Fetch products data from API when the component mounts
+    setIsLoading(true);
     axios
-      .get('http://localhost:3000/product-data/products')
+      .get(
+        `http://localhost:3000/product-data/products?page=${page}&limit=${limit}`
+      )
       .then((res) => {
-        const allProducts = res.data;
-        // If limit is set, limit the array of products, otherwise display all products
-        const limitedProducts = limit
-          ? allProducts.slice(0, limit)
-          : allProducts;
-        setProducts(limitedProducts);
+        setProducts(res.data.results);
+        setTotalPages(res.data.totalPages);
+        setIsLoading(false);
       })
       .catch((err) => {
         console.error(err);
+        setIsLoading(false);
       });
-  }, [limit]);
+  }, [page, limit]);
+
+  const handlePageChange = (newPage) => {
+    if (newPage >= 1 && newPage <= totalPages) {
+      setPage(newPage);
+    }
+  };
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <section className="product-list">
@@ -57,6 +69,36 @@ const ProductList = ({ limit }) => {
             </Link>
           </div>
         ))}
+      </div>
+
+      <div className="pagination">
+        <button
+          className="pagination-button"
+          disabled={page <= 1}
+          onClick={() => handlePageChange(page - 1)}
+        >
+          Previous
+        </button>
+
+        {[...Array(totalPages)].map((_, index) => (
+          <button
+            key={index}
+            className={`pagination-number ${
+              page === index + 1 ? 'active' : ''
+            }`}
+            onClick={() => handlePageChange(index + 1)}
+          >
+            {index + 1}
+          </button>
+        ))}
+
+        <button
+          className="pagination-button"
+          disabled={page >= totalPages}
+          onClick={() => handlePageChange(page + 1)}
+        >
+          Next
+        </button>
       </div>
     </section>
   );
