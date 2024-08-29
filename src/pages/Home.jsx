@@ -71,7 +71,7 @@ const Home = () => {
             </div>
           </div>
         </section>
-        <ProductList limit={5} /> {/* Limit the ProductList to 5 items */}
+        <ProductList limit={10} /> {/* Limit the ProductList to 5 items */}
         <div className="view-all-products">
           <Link
             to="/product"

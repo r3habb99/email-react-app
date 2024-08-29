@@ -1,4 +1,6 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'; // Import react-toastify styles
 import '../assets/css/Email.css'; // Import custom CSS
 
 const EmailForm = () => {
@@ -8,13 +10,12 @@ const EmailForm = () => {
   const [buttonLink, setButtonLink] = useState('');
   const [buttonText, setButtonText] = useState('');
   const [attachments, setAttachments] = useState([]);
-  const [successMessage, setSuccessMessage] = useState('');
-  const [errorMessage, setErrorMessage] = useState('');
 
   // Function to handle file input change
   const handleFileChange = (e) => {
     setAttachments(e.target.files);
   };
+
   // Handle link generation
   const handleGenerateLink = async () => {
     try {
@@ -26,8 +27,17 @@ const EmailForm = () => {
       setButtonLink(generatedLink); // Update the state with the generated link
     } catch (error) {
       console.error('Error generating link:', error);
-      alert('Failed to generate link. Please try again.');
+      toast.error('Failed to generate link. Please try again.');
     }
+  };
+
+  const resetForm = () => {
+    setRecipients('');
+    setSubject('');
+    setMessage('');
+    setButtonLink('');
+    setButtonText('');
+    setAttachments([]);
   };
 
   // Function to handle form submission
@@ -51,74 +61,41 @@ const EmailForm = () => {
         body: formData,
       });
 
-      const responseText = await response.text();
-      const contentType = response.headers.get('content-type');
+      const responseJson = await response.json();
 
       if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
+        throw new Error(responseJson.errorMessage || 'An error occurred');
       }
 
-      const result = contentType.includes('application/json')
-        ? JSON.parse(responseText)
-        : { errorMessage: responseText };
-
-      setSuccessMessage(result.successMessage || '');
-      setErrorMessage(result.errorMessage || '');
+      toast.success(
+        responseJson.successMessage || 'Emails sent successfully!',
+        {
+          onClose: () => {
+            // Delay resetting the form to allow the toast to fully disappear
+            setTimeout(() => {
+              resetForm();
+            }, 2000); // Match the autoClose duration
+          },
+        }
+      );
     } catch (error) {
       console.error('Error sending email:', error);
-      setSuccessMessage('');
-      setErrorMessage('An error occurred while sending the email.');
+      toast.error(
+        error.message || 'An error occurred while sending the email.',
+        {
+          onClose: () => {
+            // Optionally, you can clear the form on error as well
+            setTimeout(() => {
+              resetForm();
+            }, 2000); // Match the autoClose duration
+          },
+        }
+      );
     }
   };
-
-  // Function to remove the message
-  const removeMessage = () => {
-    setSuccessMessage('');
-    setErrorMessage('');
-  };
-
-  // UseEffect to handle cookie-based success messages
-  useEffect(() => {
-    const getCookie = (name) => {
-      const value = `; ${document.cookie}`;
-      const parts = value.split(`; ${name}=`);
-      if (parts.length === 2) return parts.pop().split(';').shift();
-    };
-
-    const successMessageCookie = getCookie('successMessage');
-    if (successMessageCookie) {
-      setSuccessMessage(successMessageCookie);
-      document.cookie = 'successMessage=; Max-Age=0; path=/'; // Remove the cookie
-    }
-  }, []);
-
   return (
     <div className="email-container">
       <h1 className="email-title">Email Form</h1>
-
-      {successMessage && (
-        <div className="success">
-          {successMessage}
-          <button
-            className="close-btn"
-            onClick={removeMessage}
-          >
-            ×
-          </button>
-        </div>
-      )}
-
-      {errorMessage && (
-        <div className="error">
-          {errorMessage}
-          <button
-            className="close-btn"
-            onClick={removeMessage}
-          >
-            ×
-          </button>
-        </div>
-      )}
 
       <form
         onSubmit={handleSubmit}
@@ -246,6 +223,19 @@ const EmailForm = () => {
           Send Email
         </button>
       </form>
+
+      {/* Toast Container */}
+      <ToastContainer
+        position="top-right"
+        autoClose={5000} // Duration in milliseconds
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </div>
   );
 };
