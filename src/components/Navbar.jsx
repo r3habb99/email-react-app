@@ -16,7 +16,7 @@ const Navbar = () => {
           component={Link}
           to="/"
         >
-          Email Dev App
+          Online Store
         </Typography>
         <div className="navbar-links">
           <Button

@@ -37,7 +37,7 @@ if (!product) {
       <div className="product-detail-info">
         <h2 className="product-detail-name">{product.name}</h2>
         <p className="product-detail-description">{product.description}</p>
-        <p className="product-detail-price">{product.price}</p>
+        <p className="product-detail-price">₹ {product.price}/-</p>
         <button className="product-detail-button">Add to Cart</button>
         <div className="product-detail-extras">
           <div className="product-detail-section">
